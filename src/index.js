@@ -14,7 +14,10 @@ function App() {
 }
 
 function Person(props) {
-  return <li>{props.person}</li>;
+  function handlePersonClick() {
+    alert(props.person);
+  }
+  return <li onClick={handlePersonClick}>{props.person}</li>;
 }
 
 const rootNode = document.getElementById("root");
