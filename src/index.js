@@ -14,8 +14,9 @@ function App() {
 }
 
 function Person(props) {
-  function handlePersonClick() {
+  function handlePersonClick(event) {
     alert(props.person);
+    console.log(event);
   }
   return <li onClick={handlePersonClick}>{props.person}</li>;
 }
