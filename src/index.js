@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 const greeting = <div>Hello React</div>;
+const isReactUser = false;
 const rootNode = document.getElementById("root");
 
-ReactDOM.render(greeting, rootNode);
+if (isReactUser) {
+  ReactDOM.render(greeting, rootNode);
+} else {
+  ReactDOM.render(<div>Hello JavaScript</div>, rootNode);
+}
+
+
