@@ -9,11 +9,16 @@ function Layout(props) {
   return <div style={{ background: "palegoldenrod" }}>{props.children}</div>;
 }
 
+function Login() {
+  return <p>Please Login!</p>;
+}
+
 const rootNode = document.getElementById("root");
+const isAuthenticated = false;
 
 ReactDOM.render(
   <Layout>
-    <Header username="John" />
+    {isAuthenticated ? <Header username="John" /> : <Login />}
     <footer>Copyright 2022</footer>
   </Layout>,
   rootNode
