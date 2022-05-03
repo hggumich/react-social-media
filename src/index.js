@@ -6,8 +6,8 @@ function App() {
 
   return (
     <ul>
-      {people.map((person) => (
-        <Person person={person} />
+      {people.map((person, i) => (
+        <Person key={i} person={person} />
       ))}
     </ul>
   );
