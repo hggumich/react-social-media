@@ -10,6 +10,8 @@ const rootNode = document.getElementById("root");
 ReactDOM.render(
   <div>
     <Header />
+    <Header />
+    <Header />
     <footer>Copyright 2022</footer>
   </div>,
   rootNode
