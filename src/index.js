@@ -22,8 +22,14 @@ const isAuthenticated = true;
 
 ReactDOM.render(
   <Layout>
-    {isAuthenticated ? <Header username="John" /> : <Login />}
-    {isAuthenticated && <Signout />}
+    {isAuthenticated ? (
+      <React.Fragment>
+        <Header username="John" />
+        <Signout />
+      </React.Fragment>
+    ) : (
+      <Login />
+    )}
     <footer>Copyright 2022</footer>
   </Layout>,
   rootNode
