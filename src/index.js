@@ -13,12 +13,17 @@ function Login() {
   return <p>Please Login!</p>;
 }
 
+function Signout() {
+  return <button>Signout</button>;
+}
+
 const rootNode = document.getElementById("root");
-const isAuthenticated = false;
+const isAuthenticated = true;
 
 ReactDOM.render(
   <Layout>
     {isAuthenticated ? <Header username="John" /> : <Login />}
+    {isAuthenticated && <Signout />}
     <footer>Copyright 2022</footer>
   </Layout>,
   rootNode
