@@ -7,10 +7,14 @@ function App() {
   return (
     <ul>
       {people.map((person) => (
-        <li>{person}</li>
+        <Person person={person} />
       ))}
     </ul>
   );
+}
+
+function Person(props) {
+  return <li>{props.person}</li>;
 }
 
 const rootNode = document.getElementById("root");
