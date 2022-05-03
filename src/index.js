@@ -17,20 +17,23 @@ function Signout() {
   return <button>Signout</button>;
 }
 
+function App() {
+  return (
+    <Layout>
+      {isAuthenticated ? (
+        <React.Fragment>
+          <Header username="John" />
+          <Signout />
+        </React.Fragment>
+      ) : (
+        <Login />
+      )}
+      <footer>Copyright 2022</footer>
+    </Layout>
+  );
+}
+
 const rootNode = document.getElementById("root");
 const isAuthenticated = true;
 
-ReactDOM.render(
-  <Layout>
-    {isAuthenticated ? (
-      <React.Fragment>
-        <Header username="John" />
-        <Signout />
-      </React.Fragment>
-    ) : (
-      <Login />
-    )}
-    <footer>Copyright 2022</footer>
-  </Layout>,
-  rootNode
-);
+ReactDOM.render(<App />, rootNode);
