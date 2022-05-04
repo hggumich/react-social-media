@@ -2,14 +2,18 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 function App() {
+  const inputState = React.useState("");
+  const inputValue = inputState[0];
+  const setInputValue = inputState[1];
+
   function handleInputChange(event) {
-    const inputValue = event.target.value;
-    console.log(inputValue);
+    setInputValue(event.target.value);
   }
 
   return (
-    <div>
+    <div id="app">
       <input onChange={handleInputChange} />
+      <p>{inputState[0]}</p>
     </div>
   );
 }
