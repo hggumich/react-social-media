@@ -2,16 +2,12 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 function App() {
-  const [inputValue, setInputValue] = React.useState("");
-
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
+  const [language, setLanguage] = React.useState("Python");
 
   return (
-    <div id="app">
-      <input onChange={handleInputChange} />
-      <p>{inputValue}</p>
+    <div>
+      <button onClick={() => setLanguage("javascript")}>Change Language</button>
+      <p>I am learning {language}</p>
     </div>
   );
 }
