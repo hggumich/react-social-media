@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 function App() {
-  const inputState = React.useState("");
-  const inputValue = inputState[0];
-  const setInputValue = inputState[1];
+  const [inputValue, setInputValue] = React.useState("");
 
   function handleInputChange(event) {
     setInputValue(event.target.value);
@@ -13,7 +11,7 @@ function App() {
   return (
     <div id="app">
       <input onChange={handleInputChange} />
-      <p>{inputState[0]}</p>
+      <p>{inputValue}</p>
     </div>
   );
 }
