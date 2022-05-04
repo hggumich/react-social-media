@@ -2,21 +2,37 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 function App() {
-  const [language, setLanguage] = React.useState("Python");
-  const [yearsExperience, setYearsExperience] = React.useState(0);
+  const [developer, setDeveloper] = React.useState({
+    language: "python",
+    yearsExperience: 0,
+  });
 
   return (
     <div>
-      <button onClick={() => setLanguage("javascript")}>Change Language</button>
+      <button
+        onClick={() =>
+          setDeveloper({
+            language: "javascript",
+            yearsExperience: 0,
+          })
+        }
+      >
+        Change Language
+      </button>
 
       <div>
         <input
           type="number"
-          onChange={(event) => setYearsExperience(event.target.value)}
+          onChange={(event) =>
+            setDeveloper({
+              ...developer,
+              yearsExperience: event.target.value,
+            })
+          }
         />
       </div>
-      <p>I am learning {language}</p>
-      <p>I have {yearsExperience} years</p>
+      <p>I am learning {developer.language}</p>
+      <p>I have {developer.yearsExperience} years</p>
     </div>
   );
 }
