@@ -3,14 +3,22 @@ import ReactDOM from "react-dom";
 
 function App() {
   const [developer, setDeveloper] = React.useState({
+    name: "",
     language: "python",
     yearsExperience: 0,
     isEmployed: false,
   });
 
   React.useEffect(() => {
-    document.title = "John";
+    document.title = developer.name;
   });
+
+  function handleChangeName(event) {
+    setDeveloper({
+      ...developer,
+      name: event.target.value,
+    });
+  }
 
   function handleChangeLanguage() {
     setDeveloper({
@@ -39,6 +47,9 @@ function App() {
       <button onClick={handleChangeLanguage}>Change Language</button>
       <div>
         <input type="number" onChange={handleYearsExperience} />
+      </div>
+      <div>
+        <input type="text" onChange={handleChangeName} placeholder="" />
       </div>
       <p>I am learning {developer.language}</p>
       <p>I have {developer.yearsExperience} years</p>
