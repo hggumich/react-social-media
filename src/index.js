@@ -6,9 +6,13 @@ const endpoint = "https://api.github.com/users/hggumich";
 function App() {
   const [user, setUser] = React.useState(null);
   React.useEffect(async () => {
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    setUser(data);
+    async function getUser() {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      setUser(data);
+    }
+    getUser();
+    
   }, []);
 
   return user ? (
