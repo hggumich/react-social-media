@@ -11,7 +11,7 @@ function App() {
 
   React.useEffect(() => {
     document.title = developer.name;
-  });
+  }, [developer.name]);
 
   function handleChangeName(event) {
     setDeveloper({
