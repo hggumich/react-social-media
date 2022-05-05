@@ -6,6 +6,10 @@ function App() {
 
   React.useEffect(() => {
     document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   function handleMouseMove(event) {
