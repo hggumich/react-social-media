@@ -5,6 +5,7 @@ function App() {
   const [developer, setDeveloper] = React.useState({
     language: "python",
     yearsExperience: 0,
+    isEmployed: false,
   });
 
   function handleChangeLanguage() {
@@ -21,15 +22,25 @@ function App() {
     });
   }
 
+  function handleToggleEmployment(event) {
+    setDeveloper((prevState) => ({
+      ...prevState,
+      yearsExperience: !prevState.isEmployed,
+    }));
+  }
+
   return (
     <div>
+      <button onclick={handleToggleEmployment}>Toggle Employment Status</button>
       <button onClick={handleChangeLanguage}>Change Language</button>
-
       <div>
         <input type="number" onChange={handleYearsExperience} />
       </div>
       <p>I am learning {developer.language}</p>
       <p>I have {developer.yearsExperience} years</p>
+      <p>
+        Employment status: {developer.isEmployed ? "Employed" : "Unemployed"}
+      </p>
     </div>
   );
 }
