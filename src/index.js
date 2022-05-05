@@ -2,59 +2,20 @@ import React from 'react';
 import ReactDOM from "react-dom";
 
 function App() {
-  const [developer, setDeveloper] = React.useState({
-    name: "",
-    language: "python",
-    yearsExperience: 0,
-    isEmployed: false,
-  });
+  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
 
   React.useEffect(() => {
-    document.title = developer.name;
-  }, [developer.name]);
+    document.addEventListener("mousemove", handleMouseMove);
+  }, []);
 
-  function handleChangeName(event) {
-    setDeveloper({
-      ...developer,
-      name: event.target.value,
-    });
-  }
-
-  function handleChangeLanguage() {
-    setDeveloper({
-      language: "javascript",
-      yearsExperience: 0,
-    });
-  }
-
-  function handleYearsExperience(event) {
-    setDeveloper({
-      ...developer,
-      yearsExperience: event.target.value,
-    });
-  }
-
-  function handleToggleEmployment(event) {
-    setDeveloper((prevState) => ({
-      ...prevState,
-      yearsExperience: !prevState.isEmployed,
-    }));
+  function handleMouseMove(event) {
+    setMousePosition({ x: event.pageX, y: event.pageY });
   }
 
   return (
     <div>
-      <button onclick={handleToggleEmployment}>Toggle Employment Status</button>
-      <button onClick={handleChangeLanguage}>Change Language</button>
-      <div>
-        <input type="number" onChange={handleYearsExperience} />
-      </div>
-      <div>
-        <input type="text" onChange={handleChangeName} placeholder="" />
-      </div>
-      <p>I am learning {developer.language}</p>
-      <p>I have {developer.yearsExperience} years</p>
       <p>
-        Employment status: {developer.isEmployed ? "Employed" : "Unemployed"}
+        X: {mousePosition.x}, Y: {mousePosition.y}{" "}
       </p>
     </div>
   );
