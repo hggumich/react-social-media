@@ -8,6 +8,10 @@ function App() {
     isEmployed: false,
   });
 
+  React.useEffect(() => {
+    document.title = "John";
+  });
+
   function handleChangeLanguage() {
     setDeveloper({
       language: "javascript",
