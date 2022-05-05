@@ -23,3 +23,9 @@ function App() {
 
 const rootNode = document.getElementById("root");
 ReactDOM.render(<App />, rootNode);
+
+function NewPage() {
+  return <div>New page</div>;
+}
+
+setTimeout(() => ReactDOM.render(<NewPage />, rootNode), 2000);
