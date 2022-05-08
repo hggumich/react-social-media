@@ -16,11 +16,11 @@ function App() {
     return <Login setUser={setUser} />;
   }
   return (
-    <div>
+    <>
       <Header user={user} setUser={setUser} />
       <CreatePost user={user} setPosts={setPosts} posts={posts} />
       <PostList posts={posts} />
-    </div>
+    </>
   );
 }
 
