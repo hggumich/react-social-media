@@ -9,6 +9,7 @@ function CreatePost({ user, setPosts, posts }) {
     const post = { content, image, user };
     const newPosts = [post, ...posts];
     setPosts(newPosts);
+    setContent("");
   }
 
   return (
@@ -19,6 +20,7 @@ function CreatePost({ user, setPosts, posts }) {
           onChange={(event) => setContent(event.target.value)}
           type="text"
           placeholder="Add Post Content"
+          value={content}
         />
         <input
           onChange={(event) => setImage(event.target.files[0])}

@@ -18,8 +18,8 @@ function App() {
     <div>
       <Header user={user} setUser={setUser} />
       <CreatePost user={user} setPosts={setPosts} posts={posts} />
-      {posts.map((post) => (
-        <>
+      {posts.map((post, i) => (
+        <React.Fragment key={i}>
           {post.image && (
             <img
               style={{ height: 100, width: 200, objectFit: "cover" }}
@@ -29,7 +29,7 @@ function App() {
           )}
           <p>{post.content}</p>
           <div>{user}</div>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
