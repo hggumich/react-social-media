@@ -6,7 +6,10 @@ import PostList from "./components/PostList";
 import postReducer from "./reducer";
 
 export const UserContext = React.createContext();
-export const PostContext = React.createContext();
+export const PostContext = React.createContext({
+  posts: []
+}
+);
 
 function App() {
   const initialPostState = React.useContext(PostContext);
